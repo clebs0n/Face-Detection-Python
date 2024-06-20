@@ -4,7 +4,6 @@ import os
 from cvzone.PoseModule import PoseDetector
 import cvzone
 
-# Face detection setup
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
 cascadePath = "haarcascade_frontalface_default.xml"
@@ -42,7 +41,7 @@ while True:
             id = names[id]
             confidence = "  {0}%".format(round(100 - confidence))
         else:
-            id = "Clebson"
+            id = "Desconhecido"
             confidence = "  {0}%".format(round(100 - confidence))
         
         cv2.putText(img, str(id), (x+5,y-5), font, 1, (255,255,255), 2)
@@ -76,6 +75,6 @@ while True:
     if k == 27:
         break
 
-print("\n [INFO] Exiting Program and cleanup stuff")
+print("\nExiting")
 cam.release()
 cv2.destroyAllWindows()
